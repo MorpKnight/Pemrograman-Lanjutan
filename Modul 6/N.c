@@ -2,11 +2,14 @@
 #include <stdlib.h>
 
 int main() {
-    char input;
+    char input, lanjut;
     int num, product, total;
     do {
+        // reset total
         total = 1;
         printf("Masukkan bilangan genap (untuk berhenti masukkan 'E' atau 'e'): ");
+        
+        // loop sampai user memasukkan 'E' atau 'e'
         while (scanf("%d", &num) == 1) {
             if (num % 2 == 0) {
                 product = num;
@@ -14,14 +17,25 @@ int main() {
             }
             printf("Masukkan bilangan genap (untuk berhenti masukkan 'E' atau 'e'): ");
         }
-        scanf("%c", &input); // membersihkan input buffer
+
+        // jika user memasukkan 'E' atau 'e', maka program akan berhenti
+        scanf("%c", &input);
         if (input != 'E' && input != 'e') {
             printf("Input tidak valid, silakan coba lagi.\n");
+            // skip ke awal loop
             continue;
         }
+
+        // menampilkan hasil perkalian bilangan genap
         printf("Total perkalian bilangan genap adalah %d\n", total);
+
+        // menanyakan apakah user ingin mengulang program
         printf("Masukkan 'X' atau 'x' untuk mengulang program, atau tekan tombol apapun untuk keluar: ");
-        scanf("%c", &input);
-    } while (input == 'X' || input == 'x');
+
+        // input buffer
+        scanf("\n");
+        // input untuk menentukan apakah user ingin mengulang program
+        scanf("%c", &lanjut);
+    } while (lanjut == 'X' || lanjut == 'x');
     return 0;
 }
